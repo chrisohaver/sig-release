@@ -17,7 +17,7 @@
 - Add regions ap-northeast-3 and eu-west-3 to the list of well known AWS regions. ([#70252](https://github.com/kubernetes/kubernetes/pull/70252), [@nckturner](https://github.com/nckturner)) Courtesy of SIG AWS, and SIG Cloud Provider
 - Add scheduler benchmark tests for PodAffinity and NodeAffinity. ([#69898](https://github.com/kubernetes/kubernetes/pull/69898), [@Huang-Wei](https://github.com/Huang-Wei)) Courtesy of SIG Scheduling, and SIG Testing
 - kubeadm: Implemented preflight check to ensure that number of CPUs ([#70048](https://github.com/kubernetes/kubernetes/pull/70048), [@bart0sh](https://github.com/bart0sh)) Courtesy of SIG Cluster Lifecycle
-- CoreDNS is now the default DNS server in kube-up deployments.  ([#69883](https://github.com/kubernetes/kubernetes/pull/69883), [@chrisohaver](https://github.com/chrisohaver)) Courtesy of SIG Cluster Lifecycle
+- CoreDNS is now the default DNS server in kube-up deployments.  ([#69883](https://github.com/kubernetes/kubernetes/pull/69883), [@chrisohaver](https://github.com/chrisohaver)) Courtesy of SIG Cluster Lifecycle.
 - Opt out of chowning and chmoding from kubectl cp. ([#69573](https://github.com/kubernetes/kubernetes/pull/69573), [@bjhaid](https://github.com/bjhaid)) Courtesy of SIG CLI
 - Failed to provision volume with StorageClass "azurefile-premium": failed to create share andy-mg1121-dynamic-pvc-1a7b2813-d1b7-11e8-9e96-000d3a03e16b in account f7228f99bcde411e8ba4900: failed to create file share, err: storage: service returned error: StatusCode=400, ErrorCode=InvalidHeaderValue, ErrorMessage=The value for one of the HTTP headers is not in the correct format. ([#69718](https://github.com/kubernetes/kubernetes/pull/69718), [@andyzhangx](https://github.com/andyzhangx)) Courtesy of SIG API Machinery, SIG Azure, SIG Cloud Provider, and SIG Storage
 - `TaintBasedEvictions` feature is promoted to beta. ([#69824](https://github.com/kubernetes/kubernetes/pull/69824), [@Huang-Wei](https://github.com/Huang-Wei)) Courtesy of SIG Scheduling
@@ -269,6 +269,7 @@
 
 - Corrected family type (inet6) for ipsets in ipv6-only clusters ([#68436](https://github.com/kubernetes/kubernetes/pull/68436), [@uablrek](https://github.com/uablrek))
 - kube-proxy argument `hostname-override` can be used to override hostname defined in the configuration file ([#69340](https://github.com/kubernetes/kubernetes/pull/69340), [@stevesloka](https://github.com/stevesloka))
+- CoreDNS correctly implements DNS spec for Services with externalNames that look like IP addresses. Kube-dns does not follow the spec for the same case, resulting in an apparent behavior change. See: [coredns/coredns#2324](https://github.com/coredns/coredns/issues/2324)
 
 ### SIG Node
 
